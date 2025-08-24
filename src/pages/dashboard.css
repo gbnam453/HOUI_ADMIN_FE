@@ -1,0 +1,97 @@
+/* ✅ 전부 dashboard 네임스페이스 안에서만 동작 — 다른 페이지 영향 없음 */
+.dashboard{
+    --mint-soft:#ddf5ee;
+    --line:#e6e8eb;
+    --pill:#f5f7f6;   /* 연회색 행 */
+    --white:#ffffff;
+    --ink:#0b1215;
+
+    padding: 24px 0 80px;
+    color: var(--ink);
+}
+
+/* 메인 그리드 */
+.dashboard__grid{
+    display: grid;
+    grid-template-columns: minmax(700px, 1.8fr) 1px minmax(360px, 1fr);
+    gap: 32px;
+    align-items: start;
+}
+
+/* 세로선 */
+.dashboard__divider{
+    background: var(--line);
+    width: 1px;
+    min-height: 100%;
+}
+
+/* 제목 */
+.dashboard__title{
+    font-size: 28px;
+    font-weight: 800;
+    margin: 6px 0 18px;
+}
+
+/* 리스트 헤더/바디 */
+.db-list{ width:100%; }
+.db-list__head,
+.db-row{
+    display: grid;
+    grid-template-columns: 90px 160px 1fr 160px 160px;
+    align-items: center;
+    column-gap: 12px;
+}
+.db-list__head{
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--line);
+}
+
+/* 행: 홀짝 배경 번갈아 */
+.db-list__body{ display: flex; flex-direction: column; gap: 14px; }
+.db-row{
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: var(--white);
+}
+.db-row--even{ background: var(--pill); }
+.db-row--odd { background: var(--white); }
+
+/* 우측 카드 */
+.dashboard__right{ min-width: 320px; }
+.wait-card{
+    background: var(--mint-soft);
+    border-radius: 18px;
+    padding: 20px;
+}
+.wait-card__title{ font-size: 22px; font-weight: 800; margin: 0 6px 2px; }
+.wait-card__sub{ font-weight: 600; margin: 0 6px 14px; }
+
+.wait-table{
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+}
+.wait-table__head,
+.wait-table__row{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 16px;
+    padding: 10px 6px;
+}
+.wait-table__head{ font-weight: 700; border-bottom: 1px solid #edf1f4; }
+.wait-table__row { border-bottom: 1px solid #f3f5f6; }
+.wait-table__row:last-child{ border-bottom: none; }
+
+/* 반응형 */
+@media (max-width: 1100px){
+    .dashboard__grid{
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+    }
+    .dashboard__divider{ display: none; }
+    .db-list__head, .db-row{
+        grid-template-columns: 70px 1fr 1fr 120px 120px;
+    }
+}

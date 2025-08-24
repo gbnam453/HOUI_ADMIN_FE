@@ -19,7 +19,7 @@ export default function Login() {
     return (
         <div className="login-wrap">
             <form className="login-card" onSubmit={onSubmit}>
-                <img src="/src/assets/logo.png" alt="" className="login-logo" />
+                <img src="/src/assets/images/logo.png" alt="" className="login-logo" />
                 <h1 className="login-title">HOUI</h1>
 
                 <input

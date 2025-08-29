@@ -1,0 +1,7 @@
+.app-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+    min-height: calc(100vh - 76px); /* 헤더 높이 뺀 영역 */
+    box-sizing: border-box;
+}

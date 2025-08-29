@@ -1,30 +1,50 @@
+import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./header.css";
 
 export default function Header() {
     const navigate = useNavigate();
 
-    const handleLogout = () => {
-        localStorage.removeItem("auth");
-        sessionStorage.removeItem("auth");
+    const onLogout = () => {
+        localStorage.removeItem("token");
         navigate("/login", { replace: true });
     };
 
-    return (
-        <header className="site-header">
-            <div className="header-inner">
-                <div className="brand" aria-label="HOUI logo">HOUI</div>
+    // v6/7 NavLink 활성화 클래스
+    const cx = ({ isActive }) => `lnk ${isActive ? "active" : ""}`;
 
-                <nav className="nav">
-                    <NavLink to="/dashboard" end className="nav-link">홈</NavLink>
-                    <NavLink to="/notice" className="nav-link">공지</NavLink>
-                    <NavLink to="/signature" className="nav-link">서명관리</NavLink>
+    return (
+        <header className="houi-hd">
+            <div className="houi-hd-inner">
+                {/* 좌측 로고 */}
+                <button className="brand" onClick={() => navigate("/record")} aria-label="홈으로">
+                    HOUI
+                </button>
+
+                {/* 중앙 메뉴 */}
+                <nav className="gnb">
+                    <NavLink to="/record" className={cx}>
+                        홈
+                    </NavLink>
+                    <NavLink to="/info" className={cx}>
+                        접수현황
+                    </NavLink>
+                    <NavLink to="/record" className={cx}>
+                        접수기록
+                    </NavLink>
+                    <NavLink to="/notice" className={cx}>
+                        공지
+                    </NavLink>
                 </nav>
 
-                <button className="logout-btn" type="button" onClick={handleLogout}>
+                {/* 우측 로그아웃 */}
+                <button className="logout" onClick={onLogout}>
                     로그아웃
                 </button>
             </div>
+
+            {/* 하단 라인 */}
+            <div className="houi-hd-sep" />
         </header>
     );
 }

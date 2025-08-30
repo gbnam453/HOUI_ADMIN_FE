@@ -23,10 +23,10 @@ export default function Header() {
 
                 {/* 중앙 메뉴 */}
                 <nav className="gnb">
-                    <NavLink to="/record" className={cx}>
+                    <NavLink to="/Home" className={cx}>
                         홈
                     </NavLink>
-                    <NavLink to="/info" className={cx}>
+                    <NavLink to="/Dashboard" className={cx}>
                         접수현황
                     </NavLink>
                     <NavLink to="/record" className={cx}>

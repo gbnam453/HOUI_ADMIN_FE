@@ -6,7 +6,8 @@ import "./layouts/layout.css";
 import RequireAuth from "./routes/RequireAuth.jsx";
 
 import Login from "./pages/Login.jsx";
-import InfoPage from "./pages/InfoPage.jsx";
+import Home from "./pages/Home.jsx";
+import Dashboard from "./pages/dashboard.jsx";
 import NoticePage from "./pages/NoticePage.jsx";
 import SignaturePage from "./pages/SignaturePage.jsx";
 import RecordPage from "./pages/RecordPage.jsx";
@@ -26,7 +27,8 @@ export default function App() {
                     </RequireAuth>
                 }
             >
-                <Route path="/info" element={<InfoPage />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/record" element={<RecordPage />} /> {/* ✅ 접수기록 */}
                 <Route path="/notice" element={<NoticePage />} />
                 <Route path="/signature" element={<SignaturePage />} />

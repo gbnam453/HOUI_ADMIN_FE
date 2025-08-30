@@ -1,189 +1,92 @@
-/* ─────────────────────────────────────────────
-   Dashboard 전용 스코프: 다른 페이지에 영향 X
-   ───────────────────────────────────────────── */
-:root{
-    --mint: #dff3ec;
+:root {
+    --brand: #2fc6b4;
     --ink: #0b1215;
     --ink-soft: #2b3337;
     --line: #e6eaed;
-    --pill: #f4f6f5;  /* 유지 */
-    --white: #ffffff;
+    --pill: #f4f6f5;
+    --white: #fff;
+    --danger: #e45858;
 }
 
-.dash * { box-sizing: border-box; }
+/* 기존 스타일 그대로 두고 아래 모달 관련만 추가 */
 
-/* 페이지 래퍼 */
-.dash{
-    width: 100%;
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
-    background: #fff;
-}
-
-.dash-inner{
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: 2.6fr 1px 1.2fr; /* 좌 / 세로선 / 우 */
-    column-gap: 40px;
-    padding: 36px 0 80px;
-}
-
-/* 좌측 */
-.left{ align-self: start; }
-.left .title{
-    font-size: 36px;            /* 사진처럼 살짝 작게 */
-    font-weight: 800;
-    color: var(--ink);
-    letter-spacing: -0.02em;
-    margin: 4px 0 22px;
-}
-
-/* 테이블 헤더 */
-.table-head{
-    display: grid;
-    grid-template-columns: 90px 140px minmax(220px, 1fr) 140px 140px;
-    column-gap: 12px;
     align-items: center;
-    padding: 8px 14px 14px;
-    font-size: 17px;
-    font-weight: 800;
-    color: var(--ink);
-    border-bottom: 1px solid var(--line); /* 사진처럼 얇은 밑선 */
-}
-.table-head span{ min-width: 0; }
-
-/* 테이블 바디 */
-.table-body{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;                   /* 행 간격을 더 촘촘하게 */
+    z-index: 1000;
 }
 
-/* 각 행 */
-.table-row{
-    display: grid;
-    grid-template-columns: 90px 140px minmax(220px, 1fr) 140px 140px;
-    column-gap: 12px;
-    align-items: center;
-    padding: 18px 16px;
-    border-radius: 12px;         /* 라운드 낮춤 */
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ink-soft);
-    border: 1px solid var(--line);
-    background: #ffffff;         /* 기본 흰색 */
-}
-.table-row:nth-child(odd){
-    background: #f5f7f6;         /* 사진처럼 줄무늬(회색/흰색) */
-}
-.table-row span{
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-/* 가운데 세로 구분선 */
-.v-divider{
-    width: 1px;
-    background: var(--line);
-    align-self: stretch;
-}
-
-/* 우측 카드 */
-.right{ display:flex; align-items: flex-start; }
-.waiting-card{
-    width: 100%;
-    background: var(--mint);
-    border-radius: 18px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-.waiting-title{
-    font-size: 30px;             /* 사진 크기감 */
-    font-weight: 800;
-    margin: 2px 6px 0;
-}
-.waiting-sub{
-    margin: 0 6px 6px;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--ink-soft);
-    opacity: .9;
-}
-
-/* 공지 입력 UI (흰 상자 2개) */
-.waiting-table{
-    display: flex;               /* 표 → 스택 형태로 전환 */
-    flex-direction: column;
-    gap: 12px;
-    background: transparent;     /* 바탕 민트 유지 */
-    padding: 0;
-}
-
-/* 상단: 현재 공지사항(작은 입력칸) */
-.w-head{
-    display: flex;
-    align-items: center;
-    height: 48px;
-    padding: 0 16px;
+.modal {
     background: var(--white);
-    border: 1px solid #e7ecef;
     border-radius: 12px;
-    font-size: 15px;
-    font-weight: 700;
+    width: 420px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* 하단: 큰 메모 영역(텍스트 영역 느낌) */
-.w-row{
-    background: var(--white);
-    border: 1px solid #e7ecef;
-    border-radius: 12px;
-    padding: 14px 16px;
-    min-height: 360px;           /* 사진처럼 크게 */
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.6;
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
 }
 
-/* 우하단 버튼(“수정”) */
-.waiting-card button,
-.waiting-card .btn{
-    align-self: flex-end;
-    margin-top: 6px;
-    background: var(--white);
-    border: 1px solid #e7ecef;
-    border-radius: 10px;
-    padding: 10px 18px;
-    font-size: 15px;
-    font-weight: 800;
+.modal-header h3 {
+    font-size: 16px;
+    font-weight: bold;
     color: var(--ink);
+}
+
+.highlight {
+    color: var(--brand);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
     cursor: pointer;
+    color: var(--ink-soft);
 }
 
-/* 반응형 */
-@media (max-width: 1100px){
-    .dash-inner{
-        grid-template-columns: 1fr;
-        row-gap: 28px;
-        padding: 24px 16px 60px;
-    }
-    .v-divider{ display: none; }
-    .table-head{
-        grid-template-columns: 70px 120px minmax(160px, 1fr) 120px 120px;
-        font-size: 16px;
-    }
-    .table-row{
-        grid-template-columns: 70px 120px minmax(160px, 1fr) 120px 120px;
-        font-size: 16px;
-        padding: 16px 14px;
-    }
+.modal-body textarea {
+    width: 100%;
+    height: 140px;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    resize: none;
+    outline: none;
 }
 
-@media (min-width: 1600px){
-    .dash-inner{ width: min(1400px, 92vw); }
-    .left .title{ font-size: 40px; }
-    .table-row{ font-size: 19px; }
+.modal-body textarea::placeholder {
+    color: #aaa;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.submit-btn {
+    background: var(--brand);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+.submit-btn:hover {
+    filter: brightness(1.05);
 }

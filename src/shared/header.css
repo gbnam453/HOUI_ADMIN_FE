@@ -8,7 +8,7 @@
 
 /* 헤더 바 */
 .houi-hd{
-    position: sticky; /* 스크롤해도 상단 고정(원하면 static으로 바꿔도 OK) */
+    position: sticky;
     top: 0;
     z-index: 30;
     background: var(--white);
@@ -19,7 +19,7 @@
     margin: 0 auto;
     height: 76px;
     display: grid;
-    grid-template-columns: 140px 1fr 140px; /* 좌 로고 / 중앙 GNB / 우 로그아웃 */
+    grid-template-columns: 140px 1fr 140px;
     align-items: center;
     padding: 0 32px;
 }
@@ -35,7 +35,7 @@
 .brand{
     all: unset;
     cursor: pointer;
-    font-size: 28px;
+    font-size: 24px;   /* 🔽 기존 28px → 24px */
     font-weight: 900;
     letter-spacing: .5px;
     color: var(--brand);
@@ -45,15 +45,15 @@
 .gnb{
     display: flex;
     justify-content: center;
-    gap: 60px;           /* 메뉴 간격(스샷처럼 넉넉) */
+    gap: 50px;          /* 살짝 줄여서 안정감 */
 }
 .lnk{
     position: relative;
     display: inline-flex;
     align-items: center;
     height: 76px;
-    font-size: 26px;     /* 스샷 굵기/크기 느낌 */
-    font-weight: 900;
+    font-size: 22px;   /* 🔽 기존 26px → 22px */
+    font-weight: 800;  /* 🔽 살짝 얇게 */
     color: var(--ink);
     text-decoration: none;
     padding: 0 6px;
@@ -79,7 +79,7 @@
     border: 1px solid #f1f3f5;
     background: var(--white);
     color: var(--danger);
-    font-weight: 800;
+    font-weight: 700; /* 조금 가볍게 */
     box-shadow: 0 3px 12px rgba(0,0,0,.06);
     cursor: pointer;
 }

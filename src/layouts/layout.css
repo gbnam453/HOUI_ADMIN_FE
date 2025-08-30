@@ -5,3 +5,8 @@
     min-height: calc(100vh - 76px); /* 헤더 높이 뺀 영역 */
     box-sizing: border-box;
 }
+/* 네비게이션 링크 스타일 */
+.lnk {
+    font-size: 18px;   /* 👉 여기서 크기 조절 */
+    font-weight: 700;  /* 필요하면 굵기 조절 */
+}

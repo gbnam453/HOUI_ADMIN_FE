@@ -34,7 +34,7 @@
     background:#fff; border:1px solid #bfe9df; border-radius:12px;
     box-shadow:0 20px 60px rgba(0,0,0,.12); z-index:50; overflow:hidden;
 }
-.modal.mint-border{ border:1px solid #bfe9df; } /* 디자인 이미지의 연한 민트 테두리 */
+.modal.mint-border{ border:1px solid #bfe9df; }
 
 .modal-header{ display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid var(--line); }
 .modal-title{ margin:0; font-size:18px; font-weight:900; color:var(--ink); }
@@ -43,10 +43,15 @@
 
 .modal-body{ padding:18px 20px; display:grid; gap:14px; }
 .field{ display:grid; gap:8px; }
-.field-label{ font-weight:700; color:#6b7580; font-size:14px; }
+
+/* 🔥 라벨 크기 업 */
+.field-label{ font-weight:700; color:#6b7580; font-size:18px; }
+
+/* 🔥 입력/내용 크기 업 */
 .field-input{
     width:100%; min-height:96px; resize:vertical;
     border:1px solid var(--line); border-radius:12px; padding:12px 14px; outline:none;
+    font-size:17px; line-height:1.5;  /* ← 글씨 크게 */
 }
 .field-input:focus{ border-color:#bfe9df; box-shadow:0 0 0 3px #eaf8f4; }
 
@@ -54,6 +59,6 @@
 .ghost-btn{ padding:10px 16px; border-radius:10px; border:1px solid var(--line); background:#fff; font-weight:700; cursor:pointer; }
 .danger-btn{ padding:10px 16px; border-radius:10px; border:1px solid var(--danger); background:#fff5f5; color:var(--danger); font-weight:800; cursor:pointer; }
 
-/* 서명 프리뷰 (보기 버튼 모달) */
+/* 서명 프리뷰 */
 .signature-img{ width:320px; height:220px; object-fit:contain; display:block; margin:8px auto 0; border:1px dashed var(--line); border-radius:10px; }
 .signature-placeholder{ width:320px; height:220px; display:grid; place-items:center; margin:8px auto 0; border-radius:10px; background:#e9ebee; color:#333; font-weight:800; }
